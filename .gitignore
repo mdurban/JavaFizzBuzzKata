@@ -11,3 +11,4 @@ lib
 *.iws
 *.iml
 /bin/
+*.swp
