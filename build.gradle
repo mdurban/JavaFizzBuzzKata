@@ -4,6 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 version = '1.0'
 
 repositories {
@@ -11,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.codehaus.groovy:groovy-all:2.3.7"
+    compile "org.codehaus.groovy:groovy-all:2.3.9"
     compile "org.spockframework:spock-core:0.7-groovy-2.0"
     testCompile "junit:junit:4.12"
 }
