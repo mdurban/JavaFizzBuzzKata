@@ -3,6 +3,16 @@ import java.util.Map;
 
 
 public class FizzBuzz {
+	
+	private static Map<Integer, String> divisbleByThreeMap = new HashMap<>();
+	private static Map<Integer, String> divisbleByFiveMap = new HashMap<>();
+	private static Map<Integer, String> divisbleByThreeAndFiveMap = new HashMap<>();
+	
+	static {
+		divisbleByThreeMap.put(0, "Fizz");
+		divisbleByFiveMap.put(0, "Buzz");
+		divisbleByThreeAndFiveMap.put(0, "FizzBuzz");
+	}
 
 	public static String print(int intToPrint) {
 		StringBuilder sb = new StringBuilder();
@@ -16,18 +26,12 @@ public class FizzBuzz {
 	}
 
 	private static String getStringTransformation(int intToPrint, int modThree, int modFive) {
-		Map<Integer, String> divByThreeMap = new HashMap<>();
-		Map<Integer, String> divByFiveMap = new HashMap<>();
-		divByThreeMap.put(0, "Fizz");
-		divByFiveMap.put(0, "Buzz");
+		String divByFiveTransformation = divisbleByFiveMap.getOrDefault(modFive, Integer.toString(intToPrint));
 		
-		String divByFiveTransformation = divByFiveMap.getOrDefault(modFive, Integer.toString(intToPrint));
-		return divByThreeMap.getOrDefault(modThree, divByFiveTransformation);
+		return divisbleByThreeMap.getOrDefault(modThree, divByFiveTransformation);
 	}
 
 	private static String getFizzBuzzOrOriginalString(StringBuilder sb, int modThree, int modFive) {
-		Map<Integer, String> divByThreeAndFiveMap = new HashMap<>();
-		divByThreeAndFiveMap.put(0, "FizzBuzz");
-		return divByThreeAndFiveMap.getOrDefault(modThree + modFive, sb.toString());
+		return divisbleByThreeAndFiveMap.getOrDefault(modThree + modFive, sb.toString());
 	}
 }
